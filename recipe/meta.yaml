@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/smqtk_descriptors-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/smqtk_descriptors-{{ version }}.tar.gz
   sha256: b1a2ee124d71f2dbf78ed445ce0e89038aac02b3cbf5e69e743ab874613531dd
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8,<4.0
+    - python {{ python_min }}
     - pip
     - poetry-core
   run:
-    - python >=3.8,<4.0
+    - python >={{ python_min }},<4.0
     - numpy >=1.19.5
     - smqtk-core >=0.18.0
     - smqtk-dataprovider >=0.16.0
@@ -33,6 +33,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/Kitware/SMQTK-Descriptors
