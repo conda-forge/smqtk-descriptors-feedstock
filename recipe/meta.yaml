@@ -1,5 +1,5 @@
 {% set name = "smqtk-descriptors" %}
-{% set version = "0.19.0" %}
+{% set version = "0.20.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/smqtk_descriptors-{{ version }}.tar.gz
-  sha256: b1a2ee124d71f2dbf78ed445ce0e89038aac02b3cbf5e69e743ab874613531dd
+  sha256: ec0c6ce48dd06b59795b44424957f92c9d5adb0765f28b11513dcf5622214797
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
